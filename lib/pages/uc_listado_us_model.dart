@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
+import 'package:flutterflow_ui/flutterflow_ui.dart';
 class UClistadeUSModel extends ChangeNotifier {
   final unfocusNode = FocusNode();
   FocusNode? textFieldFocusNode;
