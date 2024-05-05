@@ -1,4 +1,4 @@
-import 'package:your_app/models/user.dart';
+import 'package:proyecto_movil/_-%20models/user.dart';
 
 class UserService {
   // Simulación de una lista de usuarios

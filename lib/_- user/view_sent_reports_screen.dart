@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:your_app/models/report.dart';
-import 'package:your_app/services/report_service.dart';
+import 'package:proyecto_movil/_-%20models/report.dart';
+import 'package:proyecto_movil/_-%20services/report_service.dart';
 
 class ViewSentReportsScreen extends StatelessWidget {
   final ReportService reportService = ReportService();

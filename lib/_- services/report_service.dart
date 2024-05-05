@@ -1,4 +1,4 @@
-import 'package:your_app/models/report.dart';
+import 'package:proyecto_movil/_-%20models/report.dart';
 
 class ReportService {
   // Simulación de una lista de reportes
@@ -33,6 +33,18 @@ class ReportService {
     return _reports;
   }
 
+  Future<List<Report>> getSentReports() async {
+    // Simular una llamada a una API o una base de datos
+    await Future.delayed(Duration(seconds: 1));
+    return _reports;
+  }
+
+  Future<List<Report>> getUnsyncedReports() async {
+    // Simular una llamada a una API o una base de datos
+    await Future.delayed(Duration(seconds: 1));
+    return _reports;
+  }
+
   // Método para agregar un nuevo reporte
   Future<void> addReport(Report report) async {
     // Simular una llamada a una API o una base de datos
@@ -55,5 +67,10 @@ class ReportService {
     // Simular una llamada a una API o una base de datos
     await Future.delayed(Duration(seconds: 1));
     _reports.removeWhere((r) => r.id == report.id);
+  }
+
+  Future<void> sendReport(Report report) async {
+    // Simular una llamada a una API o una base de datos
+    await Future.delayed(Duration(seconds: 1));
   }
 }

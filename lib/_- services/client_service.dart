@@ -1,13 +1,15 @@
-import 'package:your_app/models/client.dart';
+import 'package:proyecto_movil/_-%20models/client.dart';
+//import 'package:get/get.dart';
 
 class ClientService {
-  // Simulación de una lista de clientes
-  List<Client> _clients = [
-    Client(id: '1', name: 'Cliente 1'),
-    Client(id: '2', name: 'Cliente 2'),
-    Client(id: '3', name: 'Cliente 3'),
-  ];
-
+  List<Client> get _clients => [
+        Client(id: '1', name: 'Cliente 1'),
+        Client(id: '2', name: 'Cliente 2'),
+        Client(id: '3', name: 'Cliente 3'),
+      ];
+  //final _clients = List<Client>.empty().obs;
+  //void addClient(Client client) {
+  //_clients.add(client);
   // Método para obtener todos los clientes
   Future<List<Client>> getClients() async {
     // Simular una llamada a una API o una base de datos

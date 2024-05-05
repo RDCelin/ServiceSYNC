@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:servicesync/%7C-%20services/client_service.dart';
-import 'package:your_app/models/client.dart';
-import 'package:your_app/services/client_service.dart';
+import 'package:proyecto_movil/_-%20services/client_service.dart';
+import 'package:proyecto_movil/_-%20models/client.dart';
 
+//import 'package:get/get.dart';
+// ignore: must_be_immutable
 class ManageClientsScreen extends StatelessWidget {
   final ClientService clientService = ClientService();
+  final Function refreshCallback; // Callback function to refresh the UI
+  int n = 3;
 
+  ManageClientsScreen({super.key, required this.refreshCallback});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,10 +42,57 @@ class ManageClientsScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Implementar funcionalidad para agregar un nuevo cliente
-          // Navigator.push(context, MaterialPageRoute(builder: (context) => AddClientScreen()));
+          openDialog(context); // Call the openDialog function
         },
         child: Icon(Icons.add),
+      ),
+    );
+  }
+
+  // Define openDialog function
+  Future<void> openDialog(BuildContext context) async {
+    String? _textFieldValue; // Variable to store the value of the text field
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Nombre cliente'), // Use quotes for string literals
+        content: TextField(
+          onChanged: (value) {
+            _textFieldValue = value; // Update the value of the text field
+          },
+        ),
+        actions: [
+          ButtonBar(alignment: MainAxisAlignment.spaceBetween, children: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: Text('Cerrar'),
+            ),
+            TextButton(
+              onPressed: () async {
+                // Check if the text field is not empty
+                if (_textFieldValue != null && _textFieldValue!.isNotEmpty) {
+                  await ClientService().addClient(
+                      Client(id: n.toString(), name: _textFieldValue!));
+
+                  n = n + 1; // Increment the id counter
+                  refreshCallback();
+                  print(ClientService);
+                  Navigator.of(context).pop();
+                } else {
+                  // Show a snackbar if the text field is empty
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Please enter a valid client name.'),
+                    ),
+                  );
+                }
+              },
+              child: Text('Submit'),
+            )
+          ]),
+        ],
       ),
     );
   }

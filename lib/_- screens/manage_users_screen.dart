@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:your_app/models/user.dart';
-import 'package:your_app/services/user_service.dart';
+import 'package:proyecto_movil/_-%20models/user.dart';
+//import 'package:your_app/models/user.dart';
+//import 'package:your_app/services/user_service.dart';
+import 'package:proyecto_movil/_-%20services/user_service.dart';
+//import 'package:flutterflow_ui/flutterflow_ui.dart';
 
 class ManageUsersScreen extends StatelessWidget {
   final UserService userService = UserService();

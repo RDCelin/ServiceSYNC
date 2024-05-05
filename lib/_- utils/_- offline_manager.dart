@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:your_app/services/report_service.dart';
+//import 'package:your_app/services/report_service.dart';
+
+import 'package:proyecto_movil/_-%20services/report_service.dart';
 
 class OfflineManager {
   final ReportService reportService = ReportService();

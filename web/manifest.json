@@ -1,6 +1,6 @@
 {
-    "name": "proyecto_movil",
-    "short_name": "proyecto_movil",
+    "name": "servicesync",
+    "short_name": "servicesync",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

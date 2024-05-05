@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+//import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'uc_listado_us_model.dart';
 export 'uc_listado_us_model.dart';
 
-import 'package:flutterflow_ui/flutterflow_ui.dart';
+//import 'package:flutterflow_ui/flutterflow_ui.dart';
+
 class UClistadeUSWidget extends StatefulWidget {
   const UClistadeUSWidget({Key? key}) : super(key: key);
 
@@ -28,7 +29,7 @@ class _UClistadeUSWidgetState extends State<UClistadeUSWidget>
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance!.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -49,14 +50,14 @@ class _UClistadeUSWidgetState extends State<UClistadeUSWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Theme.of(context).secondaryBackgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.onBackground,
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColor,
           automaticallyImplyLeading: false,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_rounded,
-              color: Theme.of(context).secondaryBackgroundColor,
+              color: Theme.of(context).colorScheme.onBackground,
               size: 30,
             ),
             onPressed: () async {
@@ -66,7 +67,7 @@ class _UClistadeUSWidgetState extends State<UClistadeUSWidget>
           title: Text(
             'Search patients',
             style: GoogleFonts.outfit().copyWith(
-              color: Theme.of(context).secondaryBackgroundColor,
+              color: Theme.of(context).colorScheme.onBackground,
               letterSpacing: 0,
             ),
           ),
@@ -95,7 +96,7 @@ class _UClistadeUSWidgetState extends State<UClistadeUSWidget>
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Theme.of(context).primaryBackgroundColor,
+                        color: Theme.of(context).colorScheme.background,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(8),
@@ -109,23 +110,23 @@ class _UClistadeUSWidgetState extends State<UClistadeUSWidget>
                     ),
                     errorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Theme.of(context).errorColor,
+                        color: Theme.of(context).colorScheme.error,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Theme.of(context).errorColor,
+                        color: Theme.of(context).colorScheme.error,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     filled: true,
-                    fillColor: Theme.of(context).primaryBackgroundColor,
+                    fillColor: Theme.of(context).colorScheme.background,
                     prefixIcon: Icon(
                       Icons.search_outlined,
-                      color: Theme.of(context).secondaryTextColor,
+                      color: Colors.white,
                     ),
                   ),
                   style: TextStyle(
@@ -133,7 +134,10 @@ class _UClistadeUSWidgetState extends State<UClistadeUSWidget>
                     letterSpacing: 0,
                   ),
                   maxLines: null,
-                  validator: _model.textControllerValidator?.call,
+                  validator: _model.textControllerValidator != null
+                      ? (value) =>
+                          _model.textControllerValidator!(context, value)
+                      : null,
                 ),
               ),
               Expanded(
@@ -146,7 +150,7 @@ class _UClistadeUSWidgetState extends State<UClistadeUSWidget>
                         padding: EdgeInsets.fromLTRB(0, 0, 0, 1),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Theme.of(context).secondaryBackgroundColor,
+                            color: Theme.of(context).colorScheme.onBackground,
                             boxShadow: [
                               BoxShadow(
                                 blurRadius: 0,
@@ -207,7 +211,8 @@ class _UClistadeUSWidgetState extends State<UClistadeUSWidget>
                                   child: Card(
                                     clipBehavior: Clip.antiAliasWithSaveLayer,
                                     color: Theme.of(context)
-                                        .primaryBackgroundColor,
+                                        .colorScheme
+                                        .background,
                                     elevation: 1,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(40),
@@ -216,8 +221,7 @@ class _UClistadeUSWidgetState extends State<UClistadeUSWidget>
                                       padding: EdgeInsets.all(4),
                                       child: Icon(
                                         Icons.keyboard_arrow_right_rounded,
-                                        color: Theme.of(context)
-                                            .secondaryTextColor,
+                                        color: Colors.white,
                                         size: 24,
                                       ),
                                     ),
