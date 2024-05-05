@@ -75,10 +75,10 @@ class ManageClientsScreen extends StatelessWidget {
                 if (_textFieldValue != null && _textFieldValue!.isNotEmpty) {
                   await ClientService().addClient(
                       Client(id: n.toString(), name: _textFieldValue!));
-
                   n = n + 1; // Increment the id counter
                   refreshCallback();
-                  print(ClientService);
+
+                  print(await clientService.getClients());
                   Navigator.of(context).pop();
                 } else {
                   // Show a snackbar if the text field is empty
