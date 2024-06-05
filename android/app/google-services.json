@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912493918664",
+    "project_id": "manejo-soporte-c3769",
+    "storage_bucket": "manejo-soporte-c3769.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912493918664:android:d132f905de14b3485ae8fd",
+        "android_client_info": {
+          "package_name": "com.mycompany.manejosoporte"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs9CrpIEkDnQJLtbnF8wmxTJ28JDjQqzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
